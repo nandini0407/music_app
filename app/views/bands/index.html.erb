@@ -1,0 +1,11 @@
+<h1>All the bands!</h1>
+
+<ul>
+  <% @bands.each do |band| %>
+    <li>
+      <%= link_to band.name, band_url(band) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= button_to 'Create Your Own Band', new_band_url, method: :get %>

@@ -1,0 +1,28 @@
+<h2>Let's create our own album!</h2>
+
+<form action='/albums' method="post">
+
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+
+  <label for="album_name">Album Name</label>
+  <input id="album_name" type="text" name="album[name]">
+  <br>
+
+  <label for="band_name">Band</label>
+  <select name="album[band_id]" id="band_name">
+    <% Band.all.each do |band| %>
+      <% if params[:band_id] == band.id  %>
+        <option value="<%= band.id %>" selected><%= band.name %></option>
+      <% else %>
+        <option value="<%= band.id %>"><%= band.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <br>
+
+  <label for="category">Category</label><br>
+  <input id="category" type="radio" name="album[category]" value="live">Live<br>
+  <input id="category" type="radio" name="album[category]" value="studio">Studio<br>
+
+  <input type="submit" value="Create My Album">
+</form>

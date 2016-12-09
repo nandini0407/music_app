@@ -1,0 +1,14 @@
+<b>New Note</b>
+<br>
+
+
+<b>Notes</b>
+<br>
+
+<ul>
+  <% @track.notes.each do |note| %>
+  <li>
+    <%= note.user_notes %>
+  </li>
+  <% end %>
+</ul>
